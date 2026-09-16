@@ -1,0 +1,31 @@
+:root {
+    --cor-fundo: #E8EDEA;
+    --cor-tabela: black;
+    --cor-pares: rgb(209, 127, 105);
+    --cor-impares: #CCCCCC;
+}
+
+* {
+    text-align: center;
+}
+
+table {
+    margin: 20px auto;
+    width: 60%;
+}
+
+thead, td {
+    border: 1px solid black;
+}
+
+thead {
+    background-color: #CCCCCC;
+}
+
+table tr:nth-child(even) {
+    background-color: rgb(175, 177, 180);
+}
+
+table tr:nth-child(odd) {
+    background-color: #E8EDEA;
+}

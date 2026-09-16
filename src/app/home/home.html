@@ -1,0 +1,23 @@
+<h1>Lista de Atividades</h1>
+<section id="inicio">
+    <form>
+        <label for="nome">Atividade: </label>
+        <input type="text" id="nome" placeholder="Digite uma atividade">
+        <button type="submit">Adicionar</button>
+    </form>
+</section>
+
+<section id="tarefas">
+    <table>
+        <thead>
+            <td>ID</td>
+            <td>Atividade</td>
+        </thead>
+        <tbody>
+            @for (item of lista; track $index) {}
+            @empty {
+                <p>Nenhuma tarefa cadastrada</p>
+            }
+        </tbody>
+    </table>
+</section>
