@@ -1,22 +1,32 @@
 <h1>Lista de Atividades</h1>
-<section id="inicio">
-    <form>
+<section>
+    <form (ngSubmit)="editandoId === null ? adicionar() : salvar()">
         <label for="nome">Atividade: </label>
-        <input type="text" id="nome" placeholder="Digite uma atividade">
-        <button type="submit">Adicionar</button>
+        <input type="text" id="nome" name="nome" placeholder="Nova atividade" [(ngModel)]="nome" />
+        <button type="submit">{{ editandoId === null ? 'Adicionar' : 'Salvar' }}</button>
     </form>
 </section>
-
-<section id="tarefas">
+<section>
     <table>
         <thead>
             <td>ID</td>
             <td>Atividade</td>
+            <td></td>
         </thead>
         <tbody>
-            @for (item of lista; track $index) {}
+            @for (atividade of lista(); track $index) {
+            <tr>
+                <td>{{ atividade.id }}</td>
+                <td>{{ atividade.nome }}</td>
+                <td>
+                    <button type="button" (click)="editar(atividade)">Editar</button>
+                    <button type="button" (click)="excluir(atividade.id)">Excluir</button>
+                </td>
+            </tr>
+            }
+
             @empty {
-                <p>Nenhuma tarefa cadastrada</p>
+            <p>Nenhuma atividade cadastrada.</p>
             }
         </tbody>
     </table>
